@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Fortify\Fortify;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class JetstreamServiceProvider extends ServiceProvider
 {
     /**
@@ -28,14 +28,15 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot()
     {
         //$this->configurePermissions();
-
         //Jetstream::deleteUsersUsing(DeleteUser::class);
         Fortify::authenticateUsing(function (Request $request) {
-            return dd($request);
-            $user = User::where('email', $request->email)->first();
-    
-            if ($user &&
-                Hash::check($request->password, $user->password)) {
+           // return dd($request);
+            $user = User::where('usu_cntcuit', $request->usu_cntcuit)->first();
+            $plain = $request->password;
+            return ($plain);
+            if (
+                $user && (md5($plain) ==  $user->password)    
+            ){
                 return $user;
             }
         });

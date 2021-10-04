@@ -45,10 +45,10 @@ return [
     | another name for the field you may define it below as needed.
     |
     */
+    'username' => 'username',
+    'usu_cntcuit' => 'identity',
 
-    'username' => 'email',
-
-    'email' => 'email',
+   
 
     /*
     |--------------------------------------------------------------------------

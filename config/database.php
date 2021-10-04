@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'sqsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,6 +77,21 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+        'oracle' => [
+            'driver'        => 'oracle',
+            'tns'           => env('ORACLE_TNS', ''),
+            'host'          => env('ORACLE_HOST', 'localhost'),
+            'port'          => env('ORACLE_PORT', '1521'),
+            'database'      => env('ORACLE_DATABASE', 'forge'),
+            'username'      => env('ORACLE_USERNAME', 'forge'),
+            'password'      => env('ORACLE_PASSWORD', ''),
+            'charset'       => env('ORACLE_CHARSET', 'AL32UTF8'),
+            'prefix'        => env('ORACLE_PREFIX', ''),
+            'prefix_schema' => env('ORACLE_SCHEMA_PREFIX', ''),
+            'edition'       => env('ORACLE_EDITION', 'ora$base'),
+           'server_version' => env('DB_SERVER_VERSION', '10g'),
+        ],
+
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
@@ -87,7 +102,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
-            'prefix' => '',
+            'prefix' => 'BT_',
             'prefix_indexes' => true,
         ],
 

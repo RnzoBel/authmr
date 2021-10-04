@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\UsuwebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Todos;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +17,9 @@ use App\Http\Livewire\Todos;
 |
 */
 
- 
+Route::get('contribu', [UsuwebController::class, 'showusuweb'])->name('profile');
 Route::get('todos', Todos::class);
+//Route::get('contri', 'UsuwebController@showusuweb');
 
 Route::get('/', function () {
     return view('welcome');

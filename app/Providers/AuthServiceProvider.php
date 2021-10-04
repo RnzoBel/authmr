@@ -23,8 +23,13 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //$this->registerPolicies();
         $this->registerPolicies();
-
+       /* Auth::provider('custom_user', function ($app, array $config) {
+            $model = $app['config']['auth.providers.users.model'];
+            return new MyEloquentUserProvider($app['hash'], $model);
+        });
+    */
         //
     }
 }
