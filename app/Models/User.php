@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    //protected $table = "xx_users";
+    protected $table = "users";
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
